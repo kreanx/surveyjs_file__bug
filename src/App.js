@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { Survey } from 'survey-react-ui';
+import { Model } from "survey-core";
+import "survey-core/defaultV2.min.css";
+
+const surveyJson = {
+  "logoPosition": "right",
+  "pages": [
+    {
+      "name": "page1",
+      "elements": [
+        {
+          "type": "file",
+          "name": "question3"
+        }
+      ]
+    }
+  ]
+};
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const survey = new Model(surveyJson);
+
+  return <Survey model={survey} />;
 }
 
 export default App;
